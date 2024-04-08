@@ -1,0 +1,338 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ff5a5a;
+    transition: .7s;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    transition: .5s;
+}
+
+.everything {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.topHeader {
+    display: flex;
+    padding: 15px 30px;
+    gap: 20px;
+    height: 12vh;
+    font-family: 'Mooli', serif;
+    justify-content: space-between;
+    align-items: center;
+    transition: .7s;
+}
+
+.topHeader h1 {
+    z-index: 200;
+}
+
+.bars {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.bar {
+    width: 21px;
+    height: 1.8px;
+    background-color: black;
+    transition: .7s;
+}
+
+.bar1 {
+    transform-origin: top left;
+}
+
+.bar3 {
+    transform-origin: bottom left;
+}
+
+.menu {
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    height: 88vh;
+    top: 12vh;
+    background-color: #d6d6d6;
+    right: -101%; /* Since blur is set, so 1% extra to hide it:) */
+    filter: blur(3px);
+    transition: .7s;
+    text-align: center;
+    padding: 0px 50px;
+    width: 100%;
+    gap: 5px;
+    min-width: 200px;
+    z-index: 20;
+}
+
+.menu>p {
+    margin: -10px;
+    font-size: 18px;
+}
+
+.menu>p:nth-child(1) {
+    margin-top: -10px;
+}
+
+.lbslider {
+    margin-bottom: -10px;
+}Pomodoro Timer
+
+
+.sliderValue {
+    margin-top: -10%;
+}
+
+.slider {
+    appearance: none;
+    border-radius: 6px;
+    width: 100%;
+    background-color: black;
+    height: 4px;
+    max-width: 300px;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    border: 1px solid;
+    width: 13px;
+    height: 13px;
+    background-color: #ff5a5a;
+    border-radius: 10px;
+    cursor: grab;
+    transition: .25s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    scale: 1.1;
+}
+
+.controls {
+    margin: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.background p:nth-child(1) {
+    font-size: 18px;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.backgroundButton {
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: white;
+    cursor: pointer;
+    outline: transparent;
+}
+
+.options {
+    display: flex;
+    gap: 13px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+input[type="checkbox"],
+label {
+    cursor: pointer;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+}
+
+.timerClock {
+    z-index: 2;
+    position: relative;
+    border: 4px solid #2E3840;
+    width: 70%;
+    max-width: 300px;
+    aspect-ratio: 1;
+    /* Width and height will always be in ratio 1:1 to form a perfect circle,
+    no need to set them separately:) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: 'Mooli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: .35s;
+    background-color: transparent;
+}
+
+.timerClock > p{
+    font-size: 1.3rem;
+}
+
+.minutes, .seconds {
+    font-size: 2.2rem;
+}
+
+.timerClock::before {
+    content: '';
+    width: 130%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    position: absolute;
+}
+
+.timerClock::after {
+    content: '';
+    width: 70%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    position: absolute;
+}
+
+.timerControls {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 70px; /* A little px won't hurt nobody (cries in responsiveness) */
+}
+
+.timerSingleControl {
+    /* outline: 1px solid; */
+    width: 60px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: black;
+    background-color: rgb(250, 250, 250);
+    transition: .35s;
+    cursor: pointer;
+}
+
+.timerSingleControl:hover {
+    background-color: black;
+    color: rgb(250, 250, 250);
+}
+
+.infoDiv {
+    background-color: white;
+    scale: 0;
+    transition: 1s;
+    gap: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    max-width: 1100px;
+    width: 95vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .5s;
+    transform-origin: left top;
+    opacity: 0.2;
+    z-index: 11;
+    border-radius: 10px;
+    font-family: 'Mooli', sans-serif;
+    font-size: 1.1rem;
+}
+.cross {
+    scale: 0;
+    opacity: 0.2;
+    font-size: 1.6rem;
+    color: white;
+    position: absolute;
+    top: -10%;
+    transform: translate(-50%);
+    left: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+.infoDiv p:nth-child(2) {
+    border: 1px solid;
+    max-width: 800px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+@media screen and (min-width:320px) {
+    .timerClock {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .menu {
+        max-width: 420px;
+        font-size: 18px;
+        right: -60%;
+    }
+
+    .controls {
+        margin-top: 80px;
+    }
+
+    .background {
+        font-size: 18px;
+        margin-top: 80px;
+    }
+
+    .background p:nth-child(1) {
+        font-size: 22px;
+    }
+
+    .backgroundButton {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .cross {
+        top: -20%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .topHeader {
+        height: 9vh;
+    }
+
+    .menu {
+        height: 91vh;
+        top: 9vh;
+        right: -50%;
+    }
+}

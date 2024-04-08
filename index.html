@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pomodoroooooooooo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="duckwithbread.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;1,400&family=Mooli&family=Space+Grotesk:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <audio id="music" src="faraway.mp3" preload="auto"></audio>
+    <div class="wrapper" id="wrapper">
+        <div class="everything">
+            <div class="menu" id="menu">
+                <p>Work Time</p>
+                <div class="wslider">
+                    <p id="workTime" class="sliderValue">25</p>
+                    <input tabindex="-1" type="range" min="1" max="60" value="25" class="slider" id="workSlider" step="1"
+                        oninput="changeWork()">
+                </div>
+                <p>Short Break Time</p>
+                <div class="bslider">
+                    <p id="breakTime" class="sliderValue">5</p>
+                    <input type="range" tabindex="-1" min="1" class="slider" max="60" value="5" id="breakSlider"
+                        oninput="changeShortBreak()">
+                </div>
+                <p>Long Break Time</p>
+                <div class="lbslider">
+                    <p id="longBreakTime" class="sliderValue">40</p>
+                    <input type="range" tabindex="-1" min="1" class="slider" max="60" value="40" id="longBreakSlider"
+                        oninput="changeLongBreak()">
+                </div>
+                <div class="controls">
+                    <div>
+                        <input type="checkbox" tabindex="-1" name="Notification" value="notify" checked id="notify">
+                        <label for="notify">Notification</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" tabindex="-1" name="Restart" value="restart" checked id="autoRestart">
+                        <label for="restart">Auto restart</label>
+                    </div>
+                </div>
+                <div class="background">
+                    <p>Change background</p>
+                    <button onclick="changeBackground()" tabindex="-1" type="button" class="backgroundButton">Random</button>
+                    <div class="options">
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" checked value="city,metropolis">
+                            <label for="city">City</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" value="night,dark,sky,stars,galaxy">
+                            <label for="night">Sky</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" value="day,daytime,daylight,bright">
+                            <label for="day">Day</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" value="nature,forest,plants,park,jungle">
+                            <label for="nature">Nature</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" value="cat,kitty,kitten">
+                            <label for="cat">Cat</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" tabindex="-1" name="backgroundOption" value="technology,tech,program,programming">
+                            <label for="technology">Tech</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header class="topHeader" id="topHeader">
+                <h1>Pomodoro Timer</h1>
+                <div class="bars" id="bars" onclick="showSettings()">
+                    <div class="bar bar1" id="bar1"></div>
+                    <div class="bar bar2" id="bar2"></div>
+                    <div class="bar bar3" id="bar3"></div>
+                </div>
+            </header>
+
+            <section class="timer">
+                <div class="timerClock" id="toggleBGColor">
+                    <p id="time">Work Time</p>
+                    <div>
+                        <span class="minutes" id="minutes">25</span>:<span class="seconds" id="seconds">00</span>
+                    </div>
+                </div>
+                <div class="timerControls">
+                    <div class="reset timerSingleControl" id="reset"><i class="fa-solid fa-rotate-right"></i></div>
+                    <div class="start timerSingleControl" id="start"><i class="fa-solid fa-circle-play"></i></div>
+                    <div class="info timerSingleControl" id="info"><i class="fa-solid fa-circle-info"></i></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="infoDiv" id="infoDiv">
+        <div class="cross" id="cross"><i class="fa-regular fa-circle-xmark"></i></div>
+        <p>A simple yet effective time management strategy, where a timer keeps you working diligently for 25
+            minutes straight, followed by a 5-minute break. While it's named after the Italian word for "tomato", it
+            won't help you whip up a pasta sauce, but it sure does keep procrastination at bay! 🍅⏲️</p>
+        <p>No.of Pomodoros: <span id="pomodoroCount">0</span></p>
+        <p>No. of short breaks since last reset: <span id="shortBreakCount">0</span></p>
+    </div>
+    <script src="script.js" async defer></script>
+</body>
+
+</html>
